@@ -1,0 +1,46 @@
+{
+    "name": "smurfworks/model-finder",
+    "description": "Laravel package for finding models and building a utility index in existing Laravel projects.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SmurfWorks\\ModelFinder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SmurfWorks\\ModelFinderTests\\": "tests/"
+        },
+        "classmap": [
+            "tests/database/seeds"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Glyn Simpson",
+            "email": "github@smurfworks.com"
+        }
+    ],
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "require": {
+        "php": ">=8.0.0",
+        "haydenpierce/class-finder": "^0.4.4",
+        "doctrine/dbal": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.10"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SmurfWorks\\ModelFinder\\ModelFinderProvider"
+            ]
+        }
+    }
+}
